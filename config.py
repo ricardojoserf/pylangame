@@ -1,0 +1,6 @@
+dict_name = "dictionary.txt"
+dict_lang = "en"
+qust_lang = "es"
+transl_to = "fr"
+randomize = "y"
+restart_f = "y"
