@@ -1,5 +1,5 @@
 dict_name = "dictionary.txt"
-dict_lang = "en"
+dict_lang = "fr"
 qust_lang = "es"
 transl_to = "fr"
 randomize = "y"

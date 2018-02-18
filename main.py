@@ -5,6 +5,7 @@ import sys
 from googletrans import Translator
 import random
 import config
+import readline
 
 traductor = Translator()
 lines = []
@@ -35,17 +36,20 @@ def game():
 	if randomize:
 		random.shuffle(lines)
 	for l in lines:
-		if qust_lang != "":
-			l = traductor.translate(l, dest=qust_lang, src=dict_lang).text.encode("utf-8").decode("utf-8").encode("utf-8").lower()
-			answer = raw_input(l+": ").lower()
-			translated = traductor.translate(l, dest=transl_to, src=qust_lang).text.encode("utf-8").decode("utf-8").encode("utf-8").lower()
+		if dict_lang != transl_to:
+			correct_answer = traductor.translate(l, dest=transl_to, src=dict_lang).text.encode("utf-8").decode("utf-8").encode("utf-8").lower()
 		else:
-			answer = raw_input(l+": ").lower()
-			translated = traductor.translate(l, dest=transl_to, src=dict_lang).text.encode("utf-8").decode("utf-8").encode("utf-8").lower()
+			correct_answer = l
+		if dict_lang != qust_lang:
+			question = traductor.translate(l, dest=qust_lang, src=dict_lang).text.encode("utf-8").decode("utf-8").encode("utf-8").lower()
+			answer = raw_input(question+": ").lower()
+		else:
+			question = l
+			answer = raw_input(question+": ").lower()
 		if answer == "stop":
 			game_stopped()
-		if answer != translated:
-			print "Failed! Answer: "+ translated.upper()
+		if answer != correct_answer:
+			print "Failed! Answer: "+ correct_answer.upper()
 			fails.append(l)
 			if restart_f:
 				game()
