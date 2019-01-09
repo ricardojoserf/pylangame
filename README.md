@@ -4,21 +4,19 @@ Game to learn vocabulary in any language using Google Translator API
 
 ## Requirements
 
-sudo pip install googletrans
+*pip install googletrans*
 
 
+## Options
 
-## Usage
+- *dict_name* - Path of the words file. One word per line. Example: "dictionary.txt"
 
+- *dict_lang* - Language of the word file indicated in variable dict_name. Example: "en"
 
-dict_name = "dictionary.txt" -> Path of the words file. One word per line
+- *qust_lang* - Language used to ask. Use it if the dictionary is not in your native language. Example: "es"
 
-dict_lang = "en" -> Language of the word file indicated in variable dict_name. Example: en means english
+- *transl_to* - Language used to answer. Example: "fr"
 
-qust_lang = "es" -> Language used to ask every word. Used if the dictionary is not using your native language
+- *randomize* - Randomize word order or not. Example: "y"
 
-transl_to = "fr" -> Language you must answer in
-
-randomize = "y" -> Randomize words or not
-
-restart_f = "y" -> Restart after failure or not
+- *restart_f* - Restart after failure or not. Example: "y"
