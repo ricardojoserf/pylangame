@@ -33,6 +33,6 @@ Python 3.x:
 pip3 install googletrans
 ```
 
-# Note 
+## Note 
 
 Tested both in Python2.x (2.7.15rc1) and Python 3.x (3.6.7)
