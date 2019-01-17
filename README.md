@@ -19,9 +19,6 @@ Game to learn vocabulary in any language using Google Translator API
 - *restart_f* - Restart after failure or not. Example: "y"
 
 
-![Screenshot](images/Screenshot_1.png)
-
-
 ## Requirements
 
 Python 2.x:
