@@ -2,6 +2,9 @@
 Game to learn vocabulary in any language using Google Translator API
 
 
+![Screenshot](images/Screenshot_1.png)
+
+
 ## Requirements
 
 Python 2.x:
