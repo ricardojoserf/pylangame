@@ -6,6 +6,7 @@ from googletrans import Translator
 import random
 import config
 import readline
+from six.moves import input as raw_input
 
 traductor = Translator()
 lines = []
@@ -19,20 +20,20 @@ restart_f = False
 
 def game_ended():
 	if len(fails) == 0:
-		print "YOU WIN!"
+		print( "YOU WIN!")
 		sys.exit()
 	else:
 		chooseMode()
 
 def game_stopped():
-	print "\nGame stopped"
-	print "Fails: ",str(fails)
+	print( "\nGame stopped" )
+	print( "Fails: ",str(fails))
 	chooseMode()
 
 
 def game():
 	fails = []
-	print "\nGame starts\n"
+	print( "\nGame starts\n")
 	if randomize:
 		random.shuffle(lines)
 	for l in lines:
@@ -42,14 +43,14 @@ def game():
 			correct_answer = l
 		if dict_lang != qust_lang:
 			question = traductor.translate(l, dest=qust_lang, src=dict_lang).text.encode("utf-8").decode("utf-8").encode("utf-8").lower()
-			answer = raw_input(question+": ").lower()
+			answer = raw_input(question.decode("utf-8")+": ").lower()
 		else:
 			question = l
-			answer = raw_input(question+": ").lower()
+			answer = raw_input(question.decode("utf-8")+": ").lower()
 		if answer == "stop":
 			game_stopped()
 		if answer != correct_answer:
-			print "Failed! Answer: "+ correct_answer.upper()
+			print( "Failed! Answer: "+ correct_answer.upper())
 			fails.append(l)
 			if restart_f:
 				game()
@@ -57,13 +58,13 @@ def game():
 
 
 def failmode():
-	print "\nFail Game starts\n"
+	print( "\nFail Game starts\n")
 	random.shuffle(fails)
 	for l in fails:
 		answer = raw_input(l+": ").lower()
 		translated = traductor.translate(l, dest=transl_to, src=qust_lang).text.encode("utf-8").decode("utf-8").encode("utf-8").lower()
 		if answer != translated:
-			print "\nFailed! Answer: "+ translated.upper()
+			print( "\nFailed! Answer: "+ translated.upper())
 		else:
 			fails.remove(l)
 	game_ended()
@@ -77,7 +78,7 @@ def chooseMode():
 	elif mode == "2":
 		failmode()
 	else:
-		print "Unknown mode"
+		print( "Unknown mode")
 
 
 def setup():
@@ -99,7 +100,7 @@ def setup():
 	try:
 		lines = open(dict_name).read().splitlines()
 	except:
-		print "Could not open file"+str(dict_name)+". Check the path exists"
+		print( "Could not open file"+str(dict_name)+". Check the path exists")
 		sys.exit()
 
 

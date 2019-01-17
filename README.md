@@ -4,7 +4,17 @@ Game to learn vocabulary in any language using Google Translator API
 
 ## Requirements
 
-*pip install googletrans*
+Python 2.x:
+
+```
+pip install googletrans
+```
+
+Python 3.x:
+
+```
+pip3 install googletrans
+```
 
 
 ## Options

@@ -1,6 +1,12 @@
+# Path of the words file. One word per line. Example: "dictionary.txt
 dict_name = "dictionary.txt"
+# Language of the word file indicated in variable dict_name. Example: "en"
 dict_lang = "fr"
+# Language used to ask. Use it if the dictionary is not in your native language. Example: "es"
 qust_lang = "es"
+# Language used to answer. Example: "fr"
 transl_to = "fr"
+# Randomize word order or not. Example: "y"
 randomize = "y"
+# Restart after failure or not. Example: "y"
 restart_f = "y"
